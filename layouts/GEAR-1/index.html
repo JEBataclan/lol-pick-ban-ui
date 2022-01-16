@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"> 
+    </head>
+    <body>
+        <div class="container">
+            <div class="bar">
+                <div class = "blue">                    
+                    <div class = "team-name">
+                        <span class="big-text" id="blue_initials">INI</span>
+                        <span class="small-text" id="blue_name">FULL TEAM NAME</span>
+                    </div>
+                </div>
+
+                <div class = "blue-timer">
+                    <span class="timer-text" id="blue_timer">:00</span>
+                </div>
+
+                <div class="score-phase"> 
+                    <span class="big-text" id="score">0 - 0</span>
+                    <span class="med-text" id="round">FINALS</span>
+                    <div class = "phase">
+                        <span class="med-text" id="phase">BAN PHASE 1</span>
+                    </div>
+                </div>
+
+                <div class="red-timer">
+                    <span class="timer-text" id="red_timer">:00</span>
+                </div>
+
+                <div class="red">
+                    <div class = "team-name">
+                        <span class="big-text" id="red_initials">INI</span>
+                        <span class="small-text" id="red_name">FULL TEAM NAME</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blue picks" id="picks_blue"></div>
+            <div class="red picks" id="picks_red"></div>
+
+            <div class="bans blue" id="bans_blue"></div>
+            <div class="bans red" id="bans_red"></div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="../../frontend/frontend-lib.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

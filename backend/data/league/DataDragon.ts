@@ -1,3 +1,5 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 import needle from 'needle';
 import * as fs from 'fs';
 import cliProgress from 'cli-progress';

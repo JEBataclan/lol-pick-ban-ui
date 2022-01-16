@@ -2,21 +2,25 @@
   "frontend": {
     "scoreEnabled": true,
     "spellsEnabled": true,
-    "coachesEnabled": true,
+    "coachesEnabled": false,
+    "round": "SEMIFINALS",
+    "game": 2,
     "blueTeam": {
-      "name": "Team Blue",
+      "initials": "CAFA",
+      "name": "PAROKYA NI DATAR",
       "score": 2,
       "coach": "Coach Blue",
       "color": "rgb(0,151,196)"
     },
     "redTeam": {
-      "name": "Team Red",
+      "initials": "COS",
+      "name": "TEAM I/O",
       "score": 1,
       "coach": "Coach Red",
       "color": "rgb(222,40,70)"
     },
-    "patch": "9.19"
+    "patch": "11.21.1"
   },
-  "contentPatch": "latest",
+  "contentPatch": "11.21.1",
   "contentCdn": "https://ddragon.leagueoflegends.com/cdn"
 }

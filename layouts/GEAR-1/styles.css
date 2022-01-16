@@ -1,0 +1,392 @@
+:root {
+    --big-text-size: 100px;
+    --med-text-size: 50px;
+    --timer-text-size: 70px
+}
+
+@font-face {
+    font-family: Cornerstone;
+    src: url(Cornerstone.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+
+.container {
+    width: 1920px;
+    height: 1080px;
+    background-color: var(--debug-color-green);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* BAR PARENT ---------------------- */
+.bar {
+    display: relative;
+    height: 163px;
+    width: 100%;
+    background-color: white;
+}
+
+/* BLUE TEAM BAR ---------------------- */
+.bar .blue {
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 36%;
+    height: inherit;
+    
+    background-color: #0E97A7;
+    direction: rtl;
+    text-indent: 75px;
+    transform: skew(14deg);
+}
+
+.bar .blue .team-name {
+    transform:   skew(-14deg) translateY(-50%);
+}
+
+/* RED TEAM BAR ---------------------- */
+.bar .red {
+    position: absolute;
+    right: -25px;
+    top: 0;
+    width: 36%;
+    height: inherit;
+
+    background-color: #C01F32;
+    text-indent: 75px;
+    transform: skew(-14deg);
+}
+
+.bar .red .team-name {
+    transform: skew(14deg) translateY(-50%);
+}
+
+/* BAR INFO ---------------------- */
+.bar .blue-timer,.red-timer {
+    position: absolute;
+    width: 8%;
+    height: inherit;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar .blue-timer {
+    left: 670px;
+    transform:skew(14deg);
+}
+
+.bar .blue-timer span {
+    transform: skew(-14deg);
+}
+
+.bar .red-timer {
+    right: 670px;
+    transform:skew(-14deg);
+}
+
+.bar .red-timer span {
+    transform: skew(14deg);
+}
+
+.bar .turn-black {
+    background: black;
+}
+
+.bar .turn-blue {
+    background: #0E97A7;
+}
+
+.bar .turn-red {
+    background: #C01F32;
+}
+
+.score-phase {
+    width: 100%;
+    text-align: center; 
+    height: inherit;
+    font: 500 25px 'Montserrat', sans-serif;
+    margin-top: -5px;
+}
+
+.score-phase > #score {
+    font: 500 25px 'Montserrat', sans-serif;
+    font-size: 75px;
+}
+
+.phase {
+    position: absolute;
+    top: 123px;
+    left: 840px;
+    border-top: 40px solid #FF073A;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    height: 0;
+    width: 220px;
+}
+
+.phase span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120%);
+
+    font: 500 25px 'Montserrat', sans-serif;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+/* BAR UTILITIES ---------------------- */
+.bar .team-name {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.bar .big-text {
+    font: 900 var(--big-text-size) 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    display: block;
+    line-height: var(--big-text-size);
+}
+
+.bar .small-text {
+    font: 900 20px 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    display: block;
+}
+
+.bar-phase .med-text {
+    font-size: var(--med-text-size);
+}
+
+.timer-text {
+    font-family: Cornerstone;
+    font-size: var(--timer-text-size);
+    color: white;
+}
+
+/* PICKS ---------------------- */
+.picks {
+    position: absolute;
+    top: 180px;
+    width: 500px;
+    height: 750px;
+    
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--debug-color-green);
+}
+
+.picks.red {
+    right: 0;
+}
+
+.picks .pick {
+    transition: 2s;
+    position: relative;
+    width: 100%;
+    border: 1px solid black;
+    flex-grow: 2;
+}
+
+.picks .pick .splash {
+    height: 100%;
+    width: 100%;
+    
+    transition: 
+      background-color 0.5s ease,
+      opacity 0.75s;
+      
+    border-width: 0px;
+    background-size: 100%;
+    background-position: 20% 25%;
+}
+
+.picks .pick .blank {
+    height: 100%;
+    width: 100%;
+    
+    transition: 
+      background-color 0.5s ease,
+      opacity 0.75s;
+      
+    border-width: 0px;
+    background-size: 15%;
+    background-color: #141414;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.picks .pick .text-champ {
+    color: white;
+    font: italic 100 20px 'Montserrat', sans-serif;
+    position: absolute;
+    left: 10px;
+    bottom: 35px;
+}
+
+.picks.blue .pick .text-champ {
+    right: 10px;
+    text-align: right;
+}
+
+.picks .pick .text-ign {
+    color: white;
+    font: italic 900 30px 'Montserrat', sans-serif;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+}
+
+.picks.blue .pick .text-ign {
+    right: 10px;
+    text-align: right;
+}
+
+.picks .three-big-two-small:nth-child(n+1){
+    transition: 2s;
+    flex: 3 1 0;
+  }
+  
+.picks .three-big-two-small:nth-child(n+4){
+    transition: 2s;
+    flex: 1 1 0;
+}
+
+.picks .three-small-two-big:nth-child(n+1){
+    transition: 2s;
+    flex: 1 1 0;
+  }
+  
+.picks .three-small-two-big:nth-child(n+4){
+    transition: 2s;
+    flex: 3 1 0;
+}
+
+.picks .pick .pick-glow {
+    animation: pick-shadow 3s infinite;
+}
+
+@keyframes pick-shadow {
+    50% {box-shadow: inset 0px 0px 40px white;}
+}
+
+/* BANS ---------------------- */
+.bans {
+    overflow: hidden;
+    position: absolute;
+    top: 950px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bans.red {
+    right: 0;
+    flex-direction: row-reverse;
+}
+
+.bans .ban {
+    transition: 2s;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    transform: skewX(14deg);
+    height: inherit;
+    border: 1px solid black;
+}
+
+.bans .ban .splash {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    height: 125%;
+    width: 150%;
+    margin-left: -25%;
+    transform: skewX(-14deg);
+}
+
+.bans .ban .blank {
+    background-image: url("/layouts/GEAR 4/imgs/ban-placeholder.png") !important;
+    background-color: #141414;
+    background-position: 50% 50% !important;
+    height: 100% !important;
+    width: 150%;
+}
+
+.bans.red .ban {
+    transform: skewX(-14deg);
+}
+
+.bans.red .ban .splash {
+    transform: skewX(14deg);
+}
+
+
+.bans.blue .ban:first-child {
+    margin-left: 10px;
+}
+.bans.blue .ban:last-child {
+    margin-right: 20px;
+}
+.bans.blue .ban:nth-child(3) {
+    margin-right: 35px;
+}
+
+.bans.red .ban:first-child {
+    margin-right: 10px;
+}
+.bans.red .ban:last-child {
+    margin-left: 20px;
+}
+.bans.red .ban:nth-child(3) {
+    margin-left: 35px;
+}
+
+
+.bans .three-big-two-small:nth-child(n+1) {
+    transition: 2s;
+    width: 100px !important;
+    height: 100px;
+}
+
+.bans .three-big-two-small:nth-child(n+4) {
+    transition: 2s;
+    width: 60px !important;
+    height: 60px;
+}
+
+.bans .three-small-two-big:nth-child(n+1) {
+    transition: 2s;
+    width: 60px !important;
+    height: 60px;
+}
+
+.bans .three-small-two-big:nth-child(n+4) {
+    transition: 2s;
+    width: 100px !important;
+    height: 100px;
+}
+
+.bans .ban .ban-glow {
+    animation: ban-shadow 3s infinite;
+}
+
+@keyframes ban-shadow {
+  50% {box-shadow: inset 0px 0px 30px white;}
+}

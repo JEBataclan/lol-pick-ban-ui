@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="bar">
+                <div class="blue">
+                    <div class = "team-info">
+                        <p class="team-initials" id="blue_initials">INI</p>
+                        <p class="team-name" id="blue_name">TEAM NAME</p>
+                    </div>
+                    <span class="score" id="blue_score">0</span>
+                </div>
+
+                <div class="info">
+                    <div class="timerContainer"><p id="timer">:00</p></div>
+                    <p id="round">FINALS</p>
+                    <p id="game">GAME 1</p>
+                </div>
+
+                <div class="red">
+                    <div class = "team-info">
+                        <p class="team-initials" id="red_initials">INI</p>
+                        <p class="team-name" id="red_name">TEAM NAME</p>
+                    </div>
+                    <span class="score" id="red_score">0</span>
+                </div>
+            </div>
+
+            <div class="blue picks" id="picks_blue"></div>
+            <div class="red picks" id="picks_red"></div>
+
+            <div class="blue bans" id="bans_blue"></div>
+            <div class="red bans" id="bans_red"></div>
+        </div>
+
+        <script src="./frontend-lib.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>
