@@ -64,7 +64,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-self: center;
     color: #D4AF37;
 }
 
@@ -86,6 +85,7 @@ body {
     font-family: AkiraExpanded;
     font-size: 65px;
     line-height: 65px;
+    text-transform: uppercase;
 }
 
 .bar > .info {
@@ -154,7 +154,6 @@ body {
     flex-direction: column;
 
     background-color: rgba(18,23,26,.9);
-    
 }
 
 .picks.red {
@@ -253,10 +252,20 @@ body {
     width: 60px;
     height: 120px;
     margin-left: 10px;
+
+    transition: 2s;
 }
 
 .picks.red .pick .spells-container {
-    margin-right: 10px !important;
+    margin-right: 10px;
+}
+
+.picks .pick .out-of-bounds {
+    margin-left: -150px;
+}
+
+.picks.red .pick .out-of-bounds {
+    margin-right: -150px;
 }
 
 .picks .pick .spells-container .spell {
@@ -347,6 +356,8 @@ body {
     background-position: 55% 25%;
     height: 100%;
     width: 125%;
+
+    transition: filter 0.5s ease-in-out;
 }
 
 .bans .ban .blank {
@@ -368,6 +379,10 @@ body {
 
 .bans .ban .ban-glow {
     animation: ban-shadow 3s infinite;
+}
+
+.grayscale {
+    filter: grayscale(100%);
 }
 
 @keyframes ban-shadow {

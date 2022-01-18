@@ -23,8 +23,6 @@ var roles = ["top", "jungle", "middle", "bottom", "utility"];
     const state = newState.state;
     const config = state.config.frontend;
 
-    console.log(state.state);
-
     // Insert Team Initials and Names from config.json
     document.getElementById('blue_initials').innerText = config.blueTeam.initials;
     document.getElementById('blue_name').innerText = config.blueTeam.name;
@@ -105,6 +103,7 @@ var roles = ["top", "jungle", "middle", "bottom", "utility"];
                 allSpells = document.getElementsByClassName("spells-container");
                 for(let i = 0; i < allSpells.length; i++) {
                     allSpells[i].classList.remove("hidden");
+                    allSpells[i].classList.remove("out-of-bounds");
                 }
             }, 2500);
         }
@@ -156,6 +155,10 @@ var roles = ["top", "jungle", "middle", "bottom", "utility"];
                 splash.classList.remove("ban-glow");
             }
 
+            if (!ban.isActive && ban.champion.name !== "") {
+                splash.classList.add("grayscale");
+            }
+
             if (ban.champion.id === 0) {
                 // Not banned yet, hide
                 //splash.classList.add('blank');
@@ -200,7 +203,7 @@ function inject(team) {
             <div class="splash blank" id="picks_${team}_splash_%id%"/>
             <div class="text-champ" id="picks_${team}_champ_%id%"></div> 
             <div class="text-ign" id="picks_${team}_text_%id%"></div>
-            <div class="spells-container hidden" id="picks_${team}_spells_%id%">
+            <div class="spells-container hidden out-of-bounds" id="picks_${team}_spells_%id%">
                 <div class="spell" id="picks_${team}_%id%_spell1"></div>
                 <div class="spell" id="picks_${team}_%id%_spell2"></div>
             </div> 
